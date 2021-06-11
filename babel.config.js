@@ -12,6 +12,7 @@ module.exports = {
 					"@screens": "./src/screens",
 					"@assets": "./src/assets",
 					"@api": "./src/api",
+					"@router": "./src/router",
 				}
 			}
 		]
