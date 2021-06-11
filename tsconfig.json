@@ -9,7 +9,16 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+		"baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "tests": ["tests/*"],
+      "@components/*": ["src/components/*"],
+      "@screens/*": ["src/screens/*"],
+      "@assets/*": ["src/assets/*"],
+      "@api/*": ["src/api/*"],
+    },
   },
   "exclude": [
     "node_modules",
