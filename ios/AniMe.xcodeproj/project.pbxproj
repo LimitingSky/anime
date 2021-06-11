@@ -11,8 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3B04D505BE764DD19758A851 /* BalooTammudu2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2948670AB97A4A91A3B17BBD /* BalooTammudu2-ExtraBold.ttf */; };
+		5BBCFD6C5A774616BBEF21FB /* BalooTammudu2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B06C203AB7D41A08093F61D /* BalooTammudu2-Regular.ttf */; };
 		61051620B82474F66F847E67 /* libPods-AniMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62097D177A0AB6D1E3DF74BE /* libPods-AniMe.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		910E9D54253940A8973864F6 /* BalooTammudu2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */; };
+		99A327D5004B491A9D6F35E0 /* BalooTammudu2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C43B9AF0D874DF8AFE7DD82 /* BalooTammudu2-Bold.ttf */; };
+		F8067E2D0A5D48078FD0E0CA /* BalooTammudu2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A11E79316C0D4DC3914C0D4E /* BalooTammudu2-Medium.ttf */; };
 		FAF343301E726BB6A890C800 /* libPods-AniMe-AniMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 703690321BB661B7CD9934C5 /* libPods-AniMe-AniMeTests.a */; };
 /* End PBXBuildFile section */
 
@@ -30,18 +35,23 @@
 		00E356EE1AD99517003FC87E /* AniMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AniMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AniMeTests.m; sourceTree = "<group>"; };
+		0B06C203AB7D41A08093F61D /* BalooTammudu2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Regular.ttf"; path = "../src/assets/fonts/BalooTammudu2-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AniMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AniMe/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AniMe/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AniMe/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AniMe/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AniMe/main.m; sourceTree = "<group>"; };
+		2948670AB97A4A91A3B17BBD /* BalooTammudu2-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-ExtraBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2C43B9AF0D874DF8AFE7DD82 /* BalooTammudu2-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Bold.ttf"; path = "../src/assets/fonts/BalooTammudu2-Bold.ttf"; sourceTree = "<group>"; };
 		4FDBCA325E95A8E4B3CB7259 /* Pods-AniMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe.release.xcconfig"; path = "Target Support Files/Pods-AniMe/Pods-AniMe.release.xcconfig"; sourceTree = "<group>"; };
 		62097D177A0AB6D1E3DF74BE /* libPods-AniMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AniMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703690321BB661B7CD9934C5 /* libPods-AniMe-AniMeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AniMe-AniMeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AniMe/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8765E633D26FD2B2B5F0352C /* Pods-AniMe-AniMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe-AniMeTests.debug.xcconfig"; path = "Target Support Files/Pods-AniMe-AniMeTests/Pods-AniMe-AniMeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A11E79316C0D4DC3914C0D4E /* BalooTammudu2-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Medium.ttf"; path = "../src/assets/fonts/BalooTammudu2-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-SemiBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-SemiBold.ttf"; sourceTree = "<group>"; };
 		F23F5CBD7435FBB24866662E /* Pods-AniMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe.debug.xcconfig"; path = "Target Support Files/Pods-AniMe/Pods-AniMe.debug.xcconfig"; sourceTree = "<group>"; };
 		F58DBDB796EDB0BC04EAE814 /* Pods-AniMe-AniMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe-AniMeTests.release.xcconfig"; path = "Target Support Files/Pods-AniMe-AniMeTests/Pods-AniMe-AniMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +144,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				00153BB19692A13F123FC607 /* Pods */,
+				F8AB6125CBB744B7B05A956F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +158,19 @@
 				00E356EE1AD99517003FC87E /* AniMeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F8AB6125CBB744B7B05A956F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C43B9AF0D874DF8AFE7DD82 /* BalooTammudu2-Bold.ttf */,
+				2948670AB97A4A91A3B17BBD /* BalooTammudu2-ExtraBold.ttf */,
+				A11E79316C0D4DC3914C0D4E /* BalooTammudu2-Medium.ttf */,
+				0B06C203AB7D41A08093F61D /* BalooTammudu2-Regular.ttf */,
+				ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +269,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				99A327D5004B491A9D6F35E0 /* BalooTammudu2-Bold.ttf in Resources */,
+				3B04D505BE764DD19758A851 /* BalooTammudu2-ExtraBold.ttf in Resources */,
+				F8067E2D0A5D48078FD0E0CA /* BalooTammudu2-Medium.ttf in Resources */,
+				5BBCFD6C5A774616BBEF21FB /* BalooTammudu2-Regular.ttf in Resources */,
+				910E9D54253940A8973864F6 /* BalooTammudu2-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
