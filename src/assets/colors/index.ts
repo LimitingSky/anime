@@ -1,7 +1,12 @@
-export const ORANGE = "rgba(220,109,26,1)";
-export const ORANGE_LIGHT = "rgba(252,245,240,1)"
+export const ORANGE = "#e76f51";
+export const ORANGE_LIGHT = "#ffe8d6"
+export const ORANGE_LIGHT_100 = "#fff1e6"
 export const GREY = "rgb(227,227,227)"
 export const GREY_LIGHT = "rgb(246,244,248)"
 export const GREY_DARK = "rgb(146,147,157)"
 export const BLACK = "rgb(24,24,24)"
 export const WHITE = "rgb(255,255,255)"
+export const BLUE_DARK = "#003566"
+export const BLUE_LIGHT = "#bde0fe"
+export const PURPLE_DARK = "#4d194d"
+export const PURPLE_LIGHT = "#cbb2fe"

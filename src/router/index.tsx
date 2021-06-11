@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 export default function Router() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator>
+			<Stack.Navigator headerMode="none">
 				<Stack.Screen name="Home" component={HomeView} />
 			</Stack.Navigator>
 		</NavigationContainer>
