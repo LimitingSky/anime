@@ -1,11 +1,13 @@
 import { WHITE } from "assets/colors";
-import { SPACES } from "assets/const";
+import { SPACES, WIDTH_DESIGN } from "assets/const";
 import { StyleSheet } from "react-native";
 import { resize } from "utils/resize";
 
 export default StyleSheet.create({
 	rootContainer: {
-		backgroundColor:WHITE
+		borderRadius: resize(SPACES.XXL),
+		width: resize(WIDTH_DESIGN*.95),
+		alignSelf: 'center'
 	},
 	container: {
 		paddingHorizontal: resize(SPACES.LG),
@@ -13,12 +15,12 @@ export default StyleSheet.create({
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
-			height: -10,
+			height: -5,
 		},
 		shadowOpacity: 0.10,
 		shadowRadius: 3,
 		elevation: 3,
 		paddingVertical: resize(SPACES.XL,'height'),
-		borderTopLeftRadius: resize(SPACES.XXL)
+		borderRadius: resize(SPACES.XXL),
 	},
 })
