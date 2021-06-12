@@ -1,0 +1,55 @@
+{
+  "firstName": "Luis",
+  "middleName": "Fernando",
+  "lastName": "Garcia",
+  "surname": "Garcia",
+  "surnames": "Garcia Garcia",
+  "names": "Luis Fernando",
+  "birthDate": "13/08/1997",
+  "phone": "70496200",
+  "job": "Developer",
+  "hobbies": [],
+  "jobs": [
+    {
+      "start": "Jun/2018",
+      "end": "Currently",
+      "title": "Mobile Developer",
+      "description": "Develop hybrid applications with React Native, Redux and Firebase",
+      "company": "ELANIIN"
+    },
+    {
+      "start": "Feb/2018",
+      "end": "Apr/2018",
+      "title": "Mobile Developer",
+      "description": "Develop hybrid applications with React Native, Redux and Firebase",
+      "company": "I-Moves"
+    },
+    {
+      "start": "Dec/2015",
+      "end": "Dec/2016",
+      "title": "Software Developer",
+      "description": "Develop custom websites with PHP, HTML, JS and CSS3. Mobile applications with Angular 1. API Rest services with Nodejs. Generate digital reports, quotes, invoices and tax credits with Odoo in Python and XML",
+      "company": "Intelitecsa S.A de C.V"
+    }
+  ],
+  "references": [
+    {
+      "name": "Carlos Cornejo",
+      "phone": "7754 8562",
+      "job": "Lead Android Engineer at Nike",
+      "relationship": "Previous leader"
+    },
+    {
+      "name": "Diego Henriquez",
+      "phone": "6173 2438",
+      "job": "FullStack Developer at Elaniin",
+      "relationship": "coworker"
+    },
+    {
+      "name": "Walter Macall",
+      "phone": "7745 0545",
+      "job": "Software Developer at Applaudo Studios",
+      "relationship": "Ex work partner"
+    }
+  ]
+}
