@@ -8,7 +8,7 @@ import {GREEN_50, GREEN_900} from 'assets/colors';
 interface ModeButton {
   onPress?: (event: GestureResponderEvent) => void;
   title: string;
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   colors: string[];
 }
 
@@ -24,15 +24,11 @@ export const ModeButton = (props: ModeButton) => {
 					{backgroundColor: props.colors[0]}
 				]}
 			>
-        <Image
-          source={props.icon}
-          style={[styles.icon, {tintColor: props.colors[1]}]}
-        />
-      </View>
-      <CustomText style={styles.capitalLetter}>
+        <CustomText style={[styles.capitalLetter,{color:props.colors[1]}]}>
 				{props.title.substring(0,1).toUpperCase()}
+				</CustomText>
+      </View>
 				<CustomText style={styles.text}>{props.title.substr(1,props.title.length)}</CustomText>
-			</CustomText>
     </TouchableOpacity>
   );
 };

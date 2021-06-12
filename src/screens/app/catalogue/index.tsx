@@ -16,28 +16,30 @@ export default function CatalogueView(props: ICatalogueView) {
   return (
     <Container>
       <FlatList
-        data={Array.from({length:3})}
+				stickyHeaderIndices={[1]}
+        data={Array.from({length:30})}
         keyExtractor={(item, index) => String(index)}
-        renderItem={({item, index}) => <ItemList />}
+        renderItem={({item, index}) => !Boolean(index)?null:<ItemList />}
         ListHeaderComponent={
+					<>
           <View style={styles.headerContainer}>
             <CustomText style={styles.title}>
               Choose the mode you love
             </CustomText>
-            <View style={styles.modeContainer}>
+            <View style={styles.modesContainer}>
               <ModeButton
                 title="anime"
-                icon={animeIcon}
                 colors={[BLUE_50, BLUE_900]}
               />
-              <ModeButton title="manga" icon={mangaIcon} />
+              <ModeButton title="manga"/>
             </View>
-            <View style={styles.modeContainer}>
+          </View>
+					<View style={styles.horizontalCardsContainer}>
 						<CatalogueCard />
 						<CatalogueCard />
 						<CatalogueCard />
 						</View>
-          </View>
+					</>
         }
       />
     </Container>

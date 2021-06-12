@@ -5,7 +5,7 @@ import { resize } from "utils/resize";
 
 export default StyleSheet.create({
 	container: {
-		width: resize(450),
+		width: resize(300),
 		backgroundColor: WHITE,
 		paddingHorizontal: resize(SPACES.LG),
 		paddingVertical: resize(SPACES.LG,'height'),
@@ -19,13 +19,17 @@ export default StyleSheet.create({
 		shadowRadius: 10,
 		elevation: 8,
 		marginRight: resize(SPACES.XL),
+		marginBottom: resize(SPACES.LG),
 		flexDirection:'row',
 		alignItems:'center',
 	},
 	iconContainer: {
-		padding:resize(SPACES.MD),
+		width: resize(100),
+		height: resize(100),
+		justifyContent:'center',
+		alignItems: 'center',
 		borderRadius: resize(SPACES.LG),
-		marginRight: resize(SPACES.LG)
+		marginRight: resize(SPACES.SM)
 	},
 	icon: {
 		width: resize(70),

@@ -70,8 +70,8 @@ export default StyleSheet.create({
 	},
 	bookmarkIcon: {
 		width: resize(50),
-		height: resize(50),
-		resizeMode: "contain",
+		height: resize(60),
+		resizeMode: "stretch",
 		marginTop: resize(SPACES.LG),
 	}
 })
