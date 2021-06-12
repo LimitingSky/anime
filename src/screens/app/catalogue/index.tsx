@@ -5,6 +5,7 @@ import {CatalogueCard} from 'components/catalogue/card';
 import Container from 'components/commons/container';
 import {BLUE_50, BLUE_900} from 'assets/colors';
 import {ModeButton} from 'components/catalogue/button';
+import { ItemList } from 'components/catalogue/itemList';
 import animeIcon from 'assets/images/icons/anime.png';
 import mangaIcon from 'assets/images/icons/manga.png';
 import styles from './styles';
@@ -17,7 +18,7 @@ export default function CatalogueView(props: ICatalogueView) {
       <FlatList
         data={Array.from({length:3})}
         keyExtractor={(item, index) => String(index)}
-        renderItem={({item, index}) => null}
+        renderItem={({item, index}) => <ItemList />}
         ListHeaderComponent={
           <View style={styles.headerContainer}>
             <CustomText style={styles.title}>

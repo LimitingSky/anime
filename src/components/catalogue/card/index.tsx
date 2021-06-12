@@ -1,19 +1,20 @@
 import React from "react";
-import { View } from "react-native";
+import { GestureResponderEvent, View, TouchableOpacity } from "react-native";
 import { CustomImage } from "components/commons/image";
 import { CustomText } from "components/commons/text";
 import styles from './styles'
 import FastImage from "react-native-fast-image";
 
-interface ICatalogueCard {
+export interface ICatalogueCard {
 	image: string;
 	title: string;
-	subtitle: string
+	subtitle: string;
+	onPress?: (event: GestureResponderEvent) => void;
 }
 
 export const CatalogueCard = (props:ICatalogueCard)=> {
 	return (
-		<View style={styles.container}>
+		<TouchableOpacity style={styles.container} onPress={props.onPress}>
 			<View style={styles.imageContainer}>
 				<CustomImage 
 					style={styles.image} 
@@ -26,7 +27,7 @@ export const CatalogueCard = (props:ICatalogueCard)=> {
 			</View>
 			<CustomText style={styles.title}>{props.title}</CustomText>
 			<CustomText style={styles.subtitle}>{props.subtitle}</CustomText>
-		</View>
+		</TouchableOpacity>
 	)
 }
 
