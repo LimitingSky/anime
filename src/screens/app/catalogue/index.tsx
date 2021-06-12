@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import {CustomText} from 'components/commons/text';
+import {CatalogueCard} from 'components/catalogue/card';
 import Container from 'components/commons/container';
-import {ModeButton} from 'components/catalogue';
+import {BLUE_50, BLUE_900} from 'assets/colors';
+import {ModeButton} from 'components/catalogue/button';
 import animeIcon from 'assets/images/icons/anime.png';
 import mangaIcon from 'assets/images/icons/manga.png';
 import styles from './styles';
-import {BLUE_50, BLUE_900} from 'assets/colors';
 
 interface ICatalogueView {}
 
@@ -14,7 +15,7 @@ export default function CatalogueView(props: ICatalogueView) {
   return (
     <Container>
       <FlatList
-        data={[]}
+        data={Array.from({length:3})}
         keyExtractor={(item, index) => String(index)}
         renderItem={({item, index}) => null}
         ListHeaderComponent={
@@ -30,6 +31,11 @@ export default function CatalogueView(props: ICatalogueView) {
               />
               <ModeButton title="manga" icon={mangaIcon} />
             </View>
+            <View style={styles.modeContainer}>
+						<CatalogueCard />
+						<CatalogueCard />
+						<CatalogueCard />
+						</View>
           </View>
         }
       />
