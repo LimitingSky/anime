@@ -18,13 +18,15 @@ import {
   PURPLE_LIGHT,
 } from 'assets/colors';
 import {useHomeView} from './useHomeView';
-import {TIME_LINE_VIEW} from 'router/types';
+import {CATALOGUE_VIEW, TIME_LINE_VIEW} from 'router/types';
 import Container from '@components/commons/container';
 
 export default function HomeView() {
   const {navigateTo} = useHomeView();
 
   const navigateToTimeLine = () => navigateTo({screen: TIME_LINE_VIEW});
+
+  const navigateToCatalogue = () => navigateTo({screen: CATALOGUE_VIEW});
 
   return (
     <Container>
@@ -62,6 +64,7 @@ export default function HomeView() {
             colors={[BLUE_LIGHT, BLUE_DARK]}
           />
           <HomeButton
+						onPress={navigateToCatalogue}
             title="Watch Anime or Manga"
             icon={ticketStar}
             colors={[PURPLE_LIGHT, PURPLE_DARK]}
