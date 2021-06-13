@@ -9,12 +9,15 @@ import {ItemList} from 'components/catalogue/itemList';
 import {CategoriesList} from 'components/catalogue/categoriesHorizontalList';
 import styles from './styles';
 import { useCatalogue } from './useCatalogue';
+import { DETAIL_VIEW } from 'router/types';
 
 interface ICatalogueView {}
 
 export default function CatalogueView(props: ICatalogueView) {
 
-	const {category} = useCatalogue()
+	const {category, navigateTo} = useCatalogue()
+
+	const seeDetail = (item:{}) => navigateTo({screen:DETAIL_VIEW,params:item})
 
   return (
     <Container>
@@ -22,7 +25,7 @@ export default function CatalogueView(props: ICatalogueView) {
         stickyHeaderIndices={[1]}
         data={Array.from({length: 30})}
         keyExtractor={(item, index) => String(index)}
-        renderItem={({item, index}) =>
+        renderItem={({item, index}:{item:any,index: number}) =>
           !Boolean(index) ? (
             <CategoriesList
               categories={Array.from({length: 30}).fill({title: 'Category'})}
@@ -30,7 +33,7 @@ export default function CatalogueView(props: ICatalogueView) {
 							change={(newCategory:number)=>category.change(Number(newCategory))}
             />
           ) : (
-            <ItemList />
+            <ItemList onPress={()=>seeDetail(item)} isFavorite={false} />
           )
         }
         ListHeaderComponent={
