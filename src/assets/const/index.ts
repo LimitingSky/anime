@@ -12,3 +12,5 @@ export const SPACES:ISpaces = {
 
 export const WIDTH_DESIGN:number = 1125
 export const HEIGHT_DESIGN:number = 2436
+
+export const BASE_URL:string = "https://kitsu.io/api/edge";
