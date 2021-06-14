@@ -28,7 +28,7 @@ export default function CatalogueView(props: ICatalogueView) {
         renderItem={({item, index}:{item:any,index: number}) =>
           !Boolean(index) ? (
             <CategoriesList
-              categories={Array.from({length: 30}).fill({title: 'Category'})}
+              categories={category.options}
 							selected={category.value}
 							change={(newCategory:number)=>category.change(Number(newCategory))}
             />

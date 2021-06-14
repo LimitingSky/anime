@@ -3,8 +3,12 @@ import {View, FlatList, TouchableOpacity, GestureResponderEvent} from 'react-nat
 import {Category} from './item/';
 import styles from './styles'
 
-interface Category {
-  title: string;
+export interface Category {
+  attributes: {
+		name: string
+		slug: string
+	}
+	id: number
 }
 
 interface ICategoriesList {
@@ -21,14 +25,14 @@ export const CategoriesList = (props: ICategoriesList) => {
       data={props.categories}
 			horizontal
 			showsHorizontalScrollIndicator={false}
-      renderItem={({item, index}) => (
+      renderItem={({item, index}:{item:Category,index:number}) => (
 				<Category
-				title={item.title}
-				selected={index === Number(props.selected)}
-				onPress={()=>props.change(index)}
+				title={item.attributes.name}
+				selected={item.id == props.selected}
+				onPress={()=>props.change(item.id)}
         />
 				)}
-				keyExtractor={(item,index) => JSON.stringify({...item,index})}
+				keyExtractor={(item,index) => String(item.id)}
 				/>
 		</View>
 		</View>
