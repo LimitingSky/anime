@@ -39,6 +39,9 @@ export default StyleSheet.create({
 		resizeMode:"contain",
 		borderRadius: resize(SPACES.LG),
 	},
+	textContainer: {
+		flex:1
+	},
 	title: {
 		marginTop: resize(SPACES.LG),
 		fontSize: resize(40),
@@ -64,6 +67,7 @@ export default StyleSheet.create({
 		color: GREY_LIGHT_500
 	},
 	bookmarkButton: {
+		padding: resize(SPACES.LG),
 		flexDirection: 'row',
 		justifyContent:'center',
 		alignItems:'flex-start'

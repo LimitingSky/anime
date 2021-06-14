@@ -7,6 +7,7 @@ import starImage from 'assets/images/icons/star.png';
 import bookmarkImage from 'assets/images/icons/bookmark.png';
 import styles from './styles';
 import {ICatalogueCard} from '../card';
+import { useState } from 'react';
 
 interface IItemList extends ICatalogueCard {
   rate: number;
@@ -15,6 +16,12 @@ interface IItemList extends ICatalogueCard {
 }
 
 export const ItemList = (props: IItemList) => {
+
+	const [information,setInformation] = useState({
+		subtitle: props.subtitle.substring(0,100),
+		truncate: props.subtitle.length>100,
+	})
+	
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.rightContent}>
@@ -23,14 +30,13 @@ export const ItemList = (props: IItemList) => {
 						style={styles.image}
             source={{
               uri: props.image,
-              cache: FastImage.cacheControl.cacheOnly,
               priority: FastImage.priority.high,
             }}
           />
         </View>
-        <View>
+        <View style={styles.textContainer}>
           <CustomText style={styles.title}>{props.title}</CustomText>
-          <CustomText style={styles.subtitle}>{props.subtitle}</CustomText>
+          <CustomText style={styles.subtitle}>{information.subtitle}{information.truncate&&<CustomText>...</CustomText>}</CustomText>
 					<View style={styles.rightContent}>
 						<Image source={starImage} style={styles.rateIcon} />
 						<CustomText style={styles.rateText}>{props.rate}</CustomText>

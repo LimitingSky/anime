@@ -5,6 +5,7 @@ import { resize } from "utils/resize";
 
 export default StyleSheet.create({
 	rootContainer: {
+		marginTop: resize(SPACES.XL),
 		borderRadius: resize(SPACES.XXL),
 		width: resize(WIDTH_DESIGN*.95),
 		alignSelf: 'center'
