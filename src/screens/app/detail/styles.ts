@@ -5,6 +5,9 @@ import { resize, width } from "utils/resize";
 
 const HEIGHT_CARD = width*1.3
 
+const COVER_WIDTH = 300;
+const COVER_HEIGHT= COVER_WIDTH*1.3;
+
 export default StyleSheet.create({
 	container: {
 		flex: 1,
@@ -17,18 +20,20 @@ export default StyleSheet.create({
 		left: 0,
 		width: '100%',
 		zIndex: 10,
-		flexDirection: 'row'
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center'
 	},
 	headerButton: {
-		padding: resize(SPACES.MD),
+		padding: resize(SPACES.LG),
 		borderRadius: resize(SPACES.LG),
 		backgroundColor: WHITE,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	headerButtonImage: {
-		width: resize(70),
-		height: resize(70),
+		width: resize(60),
+		height: resize(60),
 		resizeMode: "contain"
 	},
 	headerContainer:{
@@ -72,6 +77,48 @@ export default StyleSheet.create({
 	rateText: {
 		color: GREY_LIGHT_400,
 		fontSize: resize(40)
+	},
+	moreInformationContainer: {
+		width: '100%',
+		paddingTop:resize(SPACES.XL),
+		paddingHorizontal: resize(SPACES.XL),
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+	},
+	moreInformationItem:{
+		flexDirection:'row',
+		paddingLeft: resize(SPACES.XL),
+
+	},
+	coverImageContainer: {
+		width: resize(COVER_WIDTH),
+		height: resize(COVER_HEIGHT),
+		borderRadius: resize(SPACES.MD),
+		backgroundColor: WHITE,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 5,
+			height: 5,
+		},
+		shadowOpacity: 0.10,
+		shadowRadius: 3,
+		elevation: 3,
+	},
+	coverImage: {
+		width: resize(COVER_WIDTH),
+		height: resize(COVER_HEIGHT),
+		borderRadius: resize(SPACES.MD),
+		resizeMode: "contain",
+		overflow:'hidden'
+	},
+	popularityRankText: {
+		paddingRight: resize(SPACES.MD),
+		fontWeight: 'bold',
+		fontSize: resize(50)
+	},
+	popularityRankSubtext: {
+		fontSize: resize(50),
+		fontWeight: '300',
 	},
 	descriptionContainer: {
 		borderTopColor: GREY_LIGHT_100,

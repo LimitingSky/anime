@@ -62,16 +62,17 @@ export default class CatalogueView extends React.Component {
 
   seeDetail = (item: {}) => this.props.navigation.navigate(DETAIL_VIEW, item);
 
-  handleLoadMoreItem = (info) => {
-		console.log({info})
+  handleLoadMoreItem = () => {
     const {paginateItems} = this.state;
-		this.setState({
-			paginateItems: {
-				...paginateItems,
-				loading: true,
-				loadingMore: true,
-			},
-		},this.handleGetItems);
+		console.log({paginateItems})
+		if(!paginateItems.loadingMore){
+			this.setState({
+				paginateItems: {
+					...paginateItems,
+					loadingMore: true,
+				},
+			},this.handleGetItems);
+		}
   };
 
   handleGetCategories = async () => {
@@ -137,9 +138,9 @@ export default class CatalogueView extends React.Component {
           ...paginateItems,
 					extraData: !paginateItems.extraData,
           offset: offset + itemsPerPage,
-        },
-				loading: false,
-        loadingMore: false,
+					loading: false,
+        	loadingMore: false,
+        }
       });
 		} catch (error) {
 			console.log({error});
