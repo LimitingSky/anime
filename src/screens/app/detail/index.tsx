@@ -15,7 +15,7 @@ interface IDetailView {}
 
 export default function DetailView(params: IDetailView) {
   const {top} = useSafeAreaInsets();
-  const {data, back} = useDetail();
+  const {data, back,share} = useDetail();
 
   return (
     <View style={styles.container}>
@@ -32,7 +32,7 @@ export default function DetailView(params: IDetailView) {
         <TouchableOpacity style={styles.headerButton} onPress={back}>
           <Image source={arrowLeft} style={styles.headerButtonImage} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.headerButton} onPress={back}>
+        <TouchableOpacity style={styles.headerButton} onPress={share}>
           <Image source={sendIcon} style={styles.headerButtonImage} />
         </TouchableOpacity>
       </View>
@@ -82,7 +82,7 @@ export default function DetailView(params: IDetailView) {
                   Duration:
                 </CustomText>
                 <CustomText style={styles.popularityRankSubtext}>
-                  {Number(data.attributes.episodeLength)} min
+                  {Boolean(data.attributes.episodeLength)?`${Number(data.attributes.episodeLength)} min`:'N/A'}
                 </CustomText>
               </View>
 							</View>

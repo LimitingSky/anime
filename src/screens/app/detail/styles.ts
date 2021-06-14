@@ -1,5 +1,5 @@
 import { GREY_LIGHT_100, GREY_LIGHT_400, GREY_LIGHT_50, WHITE, YELLOW_300 } from "assets/colors";
-import { SPACES } from "assets/const";
+import { SPACES, WIDTH_DESIGN } from "assets/const";
 import { StyleSheet } from "react-native";
 import { resize, width } from "utils/resize";
 
@@ -61,11 +61,14 @@ export default StyleSheet.create({
 	titleText: {
 		fontWeight: 'bold',
 		fontSize: resize(90),
+		maxWidth: resize(WIDTH_DESIGN*.78)
 	},
 	rateContainer:{
 		flexDirection: 'row',
 		marginLeft: resize(20),
-		marginTop: resize(15,'height')
+		marginTop: resize(15,'height'),
+		alignItems: 'center',
+		alignSelf: 'flex-start'
 	},
 	rateIcon: {
 		width: resize(40),
@@ -76,7 +79,7 @@ export default StyleSheet.create({
 	},
 	rateText: {
 		color: GREY_LIGHT_400,
-		fontSize: resize(40)
+		fontSize: resize(50)
 	},
 	moreInformationContainer: {
 		width: '100%',
