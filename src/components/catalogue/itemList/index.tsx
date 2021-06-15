@@ -5,6 +5,7 @@ import {CustomText} from 'components/commons/text';
 import {CustomImage} from 'components/commons/image';
 import starImage from 'assets/images/icons/star.png';
 import bookmarkImage from 'assets/images/icons/bookmark.png';
+import bookmarkFulled from 'assets/images/icons/bookmarkFulled.png';
 import styles from './styles';
 import {ICatalogueCard} from '../card';
 import { useState } from 'react';
@@ -44,7 +45,7 @@ export const ItemList = (props: IItemList) => {
         </View>
       </View>
 			<TouchableOpacity style={styles.bookmarkButton} onPress={props.onPressFavorite}>
-				<Image source={bookmarkImage} style={styles.bookmarkIcon} />
+				<Image source={props.isFavorite?bookmarkFulled:bookmarkImage} style={styles.bookmarkIcon} />
 			</TouchableOpacity>
     </TouchableOpacity>
   );

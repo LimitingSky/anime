@@ -16,6 +16,10 @@ export default StyleSheet.create({
 		alignItems: 'flex-end',
 		borderBottomRightRadius: resize(SPACES.XXL),
 		backgroundColor: WHITE,
+		paddingBottom: resize(SPACES.XXL,'height'),
+		marginBottom: resize(SPACES.LG)
+	},
+	headerContainerShadows:{
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
@@ -24,8 +28,6 @@ export default StyleSheet.create({
 		shadowOpacity: 0.10,
 		shadowRadius: 3,
 		elevation: 3,
-		paddingBottom: resize(SPACES.XXL,'height'),
-		marginBottom: resize(SPACES.LG)
 	},
 	title: {
 		width:resize(TITLE_WIDTH),

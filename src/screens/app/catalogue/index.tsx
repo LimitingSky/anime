@@ -1,23 +1,25 @@
 import React from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList,ActivityIndicator} from 'react-native';
 import {CustomText} from 'components/commons/text';
 import {CatalogueCard} from 'components/catalogue/card';
 import Container from 'components/commons/container';
 import {BLUE_50, BLUE_900} from 'assets/colors';
 import {ModeButton} from 'components/catalogue/button';
 import {ItemList} from 'components/catalogue/itemList';
-import {
-  CategoriesList,
-  Category,
-} from 'components/catalogue/categoriesHorizontalList';
+import {CategoriesList,Category,} from 'components/catalogue/categoriesHorizontalList';
+import seeFavorites from 'assets/images/icons/seeAllFavorites.jpg'
 import styles from './styles';
-import {DETAIL_VIEW} from 'router/types';
+import {DETAIL_VIEW, FAVORITE_VIEW} from 'router/types';
 import {fetchGenders} from 'api/genders';
 import {arrayUnique} from 'utils/parse';
 import { getSearchData } from 'api/search';
+import { connect } from 'react-redux';
+import { ItemBase } from '../detail/useDetail';
+import { addFavoriteAnime } from 'store/reducers/favorites/actions';
 
 interface props {
   loading: boolean;
+  favoritesRefresh: boolean;
   paginateCategories: {
     offset: number;
     itemsPerPage: number;
@@ -26,7 +28,7 @@ interface props {
   };
   categories: Category[];
 	categorySelected: string,
-  items: [];
+  items: ItemBase[];
   paginateItems: {
 		extraData:boolean,
     offset: number;
@@ -35,7 +37,13 @@ interface props {
     loadingMore: boolean;
   };
 }
-export default class CatalogueView extends React.Component {
+
+const allFavoriteCard = {
+	id: "Favorite",
+	image: seeFavorites,
+	title: "See all",
+}
+class CatalogueView extends React.Component {
   state: props = {
     loading: true,
     paginateCategories: {
@@ -47,6 +55,7 @@ export default class CatalogueView extends React.Component {
     categories: [],
 		categorySelected: "",
     items: [],
+		favoritesRefresh: true,
     paginateItems: {
 			extraData:false,
       offset: 0,
@@ -60,7 +69,15 @@ export default class CatalogueView extends React.Component {
 		this.handleGetCategories()
 	}
 
-  seeDetail = (item: {}) => this.props.navigation.navigate(DETAIL_VIEW, item);
+  seeDetail = (item: ItemBase) => {
+		let screen = DETAIL_VIEW 
+		let params:ItemBase|null = item
+		if(Object.entries(item.attributes||{}).length==0){
+			screen = FAVORITE_VIEW
+			params = null
+		}
+		this.props.navigation.navigate(screen,params)
+	};
 
   handleLoadMoreItem = () => {
     const {paginateItems} = this.state;
@@ -117,7 +134,7 @@ export default class CatalogueView extends React.Component {
 
 	handleGetItems = async () => {
 		const {paginateItems, items,categories,categorySelected} = this.state;
-		console.log({paginateItems})
+		const {favorites} = this.props
     const {offset, itemsPerPage} = paginateItems;
 		try {
 			const currentCategory = categories.find(({id})=>id==Number(categorySelected));
@@ -131,7 +148,8 @@ export default class CatalogueView extends React.Component {
 				'filter[genres]': currentCategory.attributes.slug
       };
 			const response = await getSearchData('anime',params)
-			const newResults = arrayUnique(items.concat(response.data.data))
+			const results = response.data.data.map((result:ItemBase)=>({...result,isFavorite: favorites.anime.find((favorite:ItemBase)=>favorite.id===result.id)}))
+			const newResults = arrayUnique(items.concat(results))
 			this.setState({
         items: newResults,
         paginateItems: {
@@ -166,6 +184,26 @@ export default class CatalogueView extends React.Component {
 	},this.handleGetItems)
 	}
 
+	handleAddToFavorites = (item:ItemBase,index:number) => {
+		try {
+			const {items,favoritesRefresh} = this.state
+			items[index].isFavorite = !items[index].isFavorite
+			const {favorites,dispatch} = this.props;
+			let newFavorites = [...favorites.anime];
+			const existOnFavorites = newFavorites.findIndex((favorite:ItemBase)=>favorite.id===item.id)
+			if(existOnFavorites>=0){
+				newFavorites.splice(existOnFavorites,1)
+			} else {
+				newFavorites.unshift(item);
+			}
+			console.log({existOnFavorites,newFavorites})
+			dispatch(addFavoriteAnime(JSON.stringify(newFavorites)));
+			this.setState({items,favoritesRefresh:!favoritesRefresh})
+		} catch (error) {
+			console.log({error})
+		}
+	}
+
   render() {
 		const {
 			categories,
@@ -173,8 +211,13 @@ export default class CatalogueView extends React.Component {
 			paginateCategories,
 			categorySelected,
 			paginateItems,
-			loading
+			loading,
+			favoritesRefresh
 		} = this.state
+
+		const {favorites}=this.props
+
+		console.log(favorites)
 
     return (
       <Container>
@@ -201,13 +244,12 @@ export default class CatalogueView extends React.Component {
                 title={item.attributes.canonicalTitle}
                 subtitle={item.attributes.synopsis}
                 onPress={() => this.seeDetail(item)}
-                isFavorite={false}
-              />
-            )
-          }
+								onPressFavorite={() => this.handleAddToFavorites(item,index-1)}
+                isFavorite={item.isFavorite}
+              />)}
           ListHeaderComponent={
             <>
-              <View style={styles.headerContainer}>
+              <View style={[styles.headerContainer,favorites.anime.length!==0&&styles.headerContainerShadows]}>
                 <CustomText style={styles.title}>
                   Choose the mode you love
                 </CustomText>
@@ -216,15 +258,48 @@ export default class CatalogueView extends React.Component {
                   <ModeButton title="manga" />
                 </View>
               </View>
-              <View style={styles.horizontalCardsContainer}>
-                <CatalogueCard />
-                <CatalogueCard />
-                <CatalogueCard />
-              </View>
+              <FlatList
+								horizontal
+								showsHorizontalScrollIndicator={false}
+								data={[...favorites.anime.slice(0,3),allFavoriteCard]}
+								extraData={favoritesRefresh}
+								renderItem={({item})=>{
+									let restProps = {}
+									if(Object.entries(item.attributes||{}).length!==0){
+										restProps = {
+											image:item.attributes.posterImage.small,
+											title:item.attributes.canonicalTitle
+										}
+									} else {
+										restProps = item
+									}
+									return(
+										<CatalogueCard
+											onPress={() => this.seeDetail(item)}
+											{...restProps}
+										/>
+									)
+								}}
+								keyExtractor={(item,index)=>String(item.id)}
+							/>
             </>
           }
+					ListFooterComponent={
+						<>
+						{paginateItems.loadingMore&&<ActivityIndicator />}
+						</>
+					}
         />
       </Container>
     );
   }
 }
+
+const mapStateToProps = ({favorites}:{favorites:{[x:string]:string}})=>(
+	{favorites:{
+		manga:JSON.parse(favorites.manga),
+		anime:JSON.parse(favorites.anime),
+	}}
+)
+
+export default connect(mapStateToProps)(CatalogueView)

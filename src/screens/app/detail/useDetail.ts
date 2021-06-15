@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { Share } from "react-native";
 
 
-interface ItemBase {
-	id: string,
+export interface ItemBase {
+	id: string
+	isFavorite: boolean
 	attributes: {
 		slug: string
 		synopsis: string

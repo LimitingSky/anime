@@ -13,6 +13,7 @@ module.exports = {
 					"@assets": "./src/assets",
 					"@api": "./src/api",
 					"@router": "./src/router",
+					"@store": "./src/store",
 				}
 			}
 		]
