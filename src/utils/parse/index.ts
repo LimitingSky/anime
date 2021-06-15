@@ -7,3 +7,13 @@ export function arrayUnique(array:any[]):any[]{
   }
   return a;
 };
+
+export const getOffsetLimit = (url:string) => {
+  let offsetLimit = 0;
+  const _url = decodeURI(url);
+  const params = _url.match(/page\[offset\]=([^&]*)/) || [];
+  if (params.length !== 0) {
+    offsetLimit = Number(params[1]);
+  }
+  return offsetLimit;
+};

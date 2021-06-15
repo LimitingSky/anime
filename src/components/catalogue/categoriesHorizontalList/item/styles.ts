@@ -6,6 +6,9 @@ import { resize } from "utils/resize";
 export default StyleSheet.create({
 	container: {
 		paddingHorizontal: resize(SPACES.LG),
+		minWidth: resize(170),
+		justifyContent: 'center',
+		alignItems:'center'
 	},
 	title: {
 		color: GREY_LIGHT_400,

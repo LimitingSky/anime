@@ -14,7 +14,7 @@ import seeFavorites from 'assets/images/icons/seeAllFavorites.jpg';
 import styles from './styles';
 import {DETAIL_VIEW, FAVORITE_VIEW} from 'router/types';
 import {fetchGenders} from 'api/genders';
-import {arrayUnique} from 'utils/parse';
+import {arrayUnique, getOffsetLimit} from 'utils/parse';
 import {getSearchData, searchByQuery} from 'api/search';
 import {connect} from 'react-redux';
 import {ItemBase} from '../detail/useDetail';
@@ -32,6 +32,7 @@ export interface IDispatchActions {
 interface IPaginateInformation {
 	extraData: boolean;
 	offset: number;
+	offsetLimit: number;
 	itemsPerPage: number;
 	loading: boolean;
 	loadingMore: boolean;
@@ -66,16 +67,18 @@ class CatalogueView extends React.Component {
     paginateCategories: {
       extraData: false,
       offset: 0,
-      itemsPerPage: 5,
+      itemsPerPage: 10,
       loading: true,
       loadingMore: true,
+			offsetLimit:10,
     },
     paginateItems: {
-      extraData: false,
+			extraData: false,
       offset: 0,
       itemsPerPage: 5,
       loading: true,
       loadingMore: true,
+			offsetLimit:10,
     },
   };
 
@@ -94,9 +97,8 @@ class CatalogueView extends React.Component {
   };
 
   handleLoadMoreItem = () => {
-    const {paginateItems} = this.state;
-    console.log({paginateItems});
-    if (!paginateItems.loadingMore) {
+    const {paginateItems,query} = this.state;
+    if (!paginateItems.loadingMore&&paginateItems.offset<=paginateItems.offsetLimit) {
       this.setState(
         {
           paginateItems: {
@@ -104,13 +106,28 @@ class CatalogueView extends React.Component {
             loadingMore: true,
           },
         },
-        this.handleGetItems,
+        Boolean(query)?this.handleSearchByQuery:this.handleGetItems,
       );
     }
   };
 
-  handleGetCategories = async () => {
-    const {paginateCategories, categories} = this.state;
+  handleLoadMoreCategories = () => {
+    const {paginateCategories} = this.state;
+    if (!paginateCategories.loadingMore&&paginateCategories.offset<=paginateCategories.offsetLimit) {
+      this.setState(
+        {
+          paginateCategories: {
+            ...paginateCategories,
+            loadingMore: true,
+          },
+        },
+        ()=>this.handleGetCategories(false),
+      );
+    }
+  };
+
+  handleGetCategories = async (fetchItems=true) => {
+    const {paginateCategories, categories,categorySelected} = this.state;
     const {offset, itemsPerPage} = paginateCategories;
     this.setState({
       paginateCategories: {
@@ -125,6 +142,10 @@ class CatalogueView extends React.Component {
         'page[offset]': offset,
       };
       const response = await fetchGenders(params);
+			let offsetLimit = paginateCategories.offsetLimit;
+			if (response.data.links.last) {
+        offsetLimit = getOffsetLimit(response.data.links.last);
+      }
       const newGenders: Category[] = arrayUnique(
         categories.concat(response.data.data),
       );
@@ -134,14 +155,15 @@ class CatalogueView extends React.Component {
           paginateCategories: {
             ...paginateCategories,
             offset: offset + itemsPerPage,
+						loading: false,
+          	loadingMore: false,
+						offsetLimit
           },
-          categorySelected: newGenders[0].id,
+          categorySelected: Boolean(categorySelected)?categorySelected:newGenders[0].id,
         },
-        this.handleGetItems,
+        fetchItems?this.handleGetItems:()=>{},
       );
     } catch (error) {
-      console.log({error});
-    } finally {
       this.setState({
         paginateCategories: {
           ...paginateCategories,
@@ -149,7 +171,7 @@ class CatalogueView extends React.Component {
           loadingMore: false,
         },
       });
-    }
+    } 
   };
 
   handleGetItems = async () => {
@@ -171,6 +193,10 @@ class CatalogueView extends React.Component {
         'filter[genres]': currentCategory.attributes.slug,
       };
       const response = await getSearchData(mode, params);
+			let offsetLimit = paginateItems.offsetLimit;
+			if (response.data.links.last) {
+        offsetLimit = getOffsetLimit(response.data.links.last);
+      }
       const results = response.data.data.map((result: ItemBase) => ({
         ...result,
         isFavorite: favorites[mode].find(
@@ -186,11 +212,11 @@ class CatalogueView extends React.Component {
           offset: offset + itemsPerPage,
           loading: false,
           loadingMore: false,
+					offsetLimit
         },
         loading: false,
       });
     } catch (error) {
-      console.log({error});
       this.setState({
         paginateItems: {
           ...paginateItems,
@@ -254,9 +280,10 @@ class CatalogueView extends React.Component {
         items: [],
         paginateCategories: {
           offset: 0,
-          itemsPerPage: 5,
+          itemsPerPage: 10,
           loading: true,
           loadingMore: true,
+					offsetLimit:10
         },
         paginateItems: {
           extraData: false,
@@ -264,6 +291,7 @@ class CatalogueView extends React.Component {
           itemsPerPage: 5,
           loading: true,
           loadingMore: true,
+					offsetLimit:10
         },
       },
       this.handleGetCategories,
@@ -298,8 +326,11 @@ class CatalogueView extends React.Component {
         'page[limit]': itemsPerPage,
         'page[offset]': offset,
       };
-
       const response = await searchByQuery(mode, params);
+			let offsetLimit = paginateItems.offsetLimit;
+			if (response.data.links.last) {
+        offsetLimit = getOffsetLimit(response.data.links.last);
+      }
       const results = response.data.data.map((result: ItemBase) => ({
         ...result,
         isFavorite: !!favorites[mode].find(
@@ -307,7 +338,6 @@ class CatalogueView extends React.Component {
         ),
       }));
       const newResults = arrayUnique(items.concat(results));
-			console.log({newResults})
       this.setState({
         items: newResults,
         paginateItems: {
@@ -316,6 +346,7 @@ class CatalogueView extends React.Component {
           offset: offset + itemsPerPage,
           loading: false,
           loadingMore: false,
+					offsetLimit
         },
         loading: false,
       });
@@ -364,6 +395,8 @@ class CatalogueView extends React.Component {
                 categories={categories}
                 selected={categorySelected}
                 change={this.selectCategory}
+								loadMore={this.handleLoadMoreCategories}
+								loading={paginateCategories.loadingMore}
               />
             ) : (
               <ItemList
