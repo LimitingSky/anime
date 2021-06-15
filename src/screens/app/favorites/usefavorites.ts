@@ -1,7 +1,9 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { HISTORY_TYPE } from "assets/const";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { DETAIL_VIEW } from "router/types";
+import { addFavoriteAnime, addFavoriteManga } from "store/reducers/favorites/actions";
 import { ItemBase } from "../detail/useDetail";
 
 interface IStore {
@@ -17,24 +19,53 @@ interface IFavoriteView {
 }
 
 export default function useFavorites(){
+	const dispatch = useDispatch()
 	const navigation = useNavigation()
-	const {anime,manga}:IFavoriteView = useSelector(({favorites}: IStore) => ({
+	const favorites :IFavoriteView = useSelector(({favorites}: IStore) => ({
 		anime: JSON.parse(favorites.anime),
 		manga: JSON.parse(favorites.manga),
 	}));
-	const [data,setData] = useState<ItemBase[]>(anime);	
-	const [mode,setMode] = useState<string>();
+	const [data,setData] = useState<ItemBase[]>(favorites.anime);	
+	const [mode,setMode] = useState<HISTORY_TYPE>(HISTORY_TYPE.ANIME);
 
 	const seeDetail = (favorite:ItemBase) => navigation.navigate(DETAIL_VIEW,favorite)
 
 	const goBack = () => navigation.goBack()
 
-	const handleAddToFavorites = () => {}
+	const handleAddToFavorites = (item:ItemBase,index:number) => {
+			try {
+				const dispatchActions:IDispatchActions = {
+					[HISTORY_TYPE.ANIME]:addFavoriteAnime,
+					[HISTORY_TYPE.MANGA]: addFavoriteManga
+				}
+				data[index].isFavorite = !data[index].isFavorite
+				let newFavorites = [...data];
+				const existOnFavorites = newFavorites.findIndex((favorite:ItemBase)=>favorite.id===item.id)
+				if(existOnFavorites>=0){
+					newFavorites.splice(existOnFavorites,1)
+				} else {
+					newFavorites.unshift(item);
+				}
+				console.log({existOnFavorites,newFavorites})
+				dispatch(dispatchActions[mode](JSON.stringify(newFavorites)));
+				setData(newFavorites);
+			} catch (error) {
+				console.log({error})
+			}
+	}
+
+	useEffect(()=>{
+		setData(favorites[mode])
+	},[mode])
 
 	return {
 		data,
 		seeDetail,
 		back:goBack,
-		handleAddToFavorites
+		handleAddToFavorites,
+		mode: {
+			actual: mode,
+			change: setMode
+		}
 	}
 }

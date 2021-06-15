@@ -7,6 +7,11 @@ const HEADER_WITHOUT_PADDING =  WIDTH_DESIGN-(SPACES.XL*2)
 const TITLE_WIDTH = (HEADER_WITHOUT_PADDING/2)*1.3
 
 export default StyleSheet.create({
+	container: {
+		backgroundColor: WHITE,
+		paddingBottom: resize(SPACES.XL,'height'),
+		borderBottomRightRadius: resize(SPACES.XXL),
+	},
 	headerContainer: {
 		width:'100%',
 		paddingHorizontal: resize(SPACES.XL),
@@ -14,12 +19,11 @@ export default StyleSheet.create({
 		flexDirection:'row',
 		justifyContent:'space-between',
 		alignItems: 'flex-end',
-		borderBottomRightRadius: resize(SPACES.XXL),
 		backgroundColor: WHITE,
-		paddingBottom: resize(SPACES.XXL,'height'),
-		marginBottom: resize(SPACES.LG)
 	},
 	headerContainerShadows:{
+	
+		marginBottom: resize(SPACES.LG),
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,

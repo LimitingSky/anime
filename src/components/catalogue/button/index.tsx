@@ -10,13 +10,14 @@ interface ModeButton {
   title: string;
   icon?: ImageSourcePropType;
   colors: string[];
+	selected:boolean
 }
 
 export const ModeButton = (props: ModeButton) => {
   return (
     <TouchableOpacity
 			onPress={props.onPress}
-			style={styles.container}
+			style={[styles.container,!props.selected&&{transform: [{scale:0.8}]}]}
 		>
       <View 
 				style={[
@@ -28,7 +29,7 @@ export const ModeButton = (props: ModeButton) => {
 				{props.title.substring(0,1).toUpperCase()}
 				</CustomText>
       </View>
-				<CustomText style={styles.text}>{props.title.substr(1,props.title.length)}</CustomText>
+			<CustomText style={styles.text}>{props.title.substr(1,props.title.length)}</CustomText>
     </TouchableOpacity>
   );
 };
