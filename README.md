@@ -13,17 +13,17 @@ AniMe App is the challenge they gave me a week ago and it consists of customizin
 
 ## Installation
 
-[install dependencies]
-yarn install
-[ios]
-cd ios; pod install; cd .. or npx pod-install ios
+    [install dependencies]
+    yarn install
+    [ios]
+    cd ios; pod install; cd .. or npx pod-install ios
 
 ## Run
 
-[run android]
-yarn android
-[run ios]
-open AniMe.xcworkspace with xcode and run project with ⌘ + r
+    [run android]
+    yarn android
+    [run ios]
+    open AniMe.xcworkspace with xcode and run project with ⌘ + r
 
 ## List of Packages
 
