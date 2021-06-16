@@ -59,5 +59,10 @@
 		<string>BalooTammudu2-Regular.ttf</string>
 		<string>BalooTammudu2-SemiBold.ttf</string>
 	</array>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>youtube</string>
+    <string>youtube://watch?v=*</string>
+  </array>
 </dict>
 </plist>

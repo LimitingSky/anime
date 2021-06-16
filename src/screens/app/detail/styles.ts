@@ -1,4 +1,4 @@
-import { GREY_LIGHT_100, GREY_LIGHT_400, GREY_LIGHT_50, WHITE, YELLOW_300 } from "assets/colors";
+import { GREY_LIGHT_100, GREY_LIGHT_400, GREY_LIGHT_50, RED_400, RED_600, WHITE, YELLOW_300 } from "assets/colors";
 import { SPACES, WIDTH_DESIGN } from "assets/const";
 import { StyleSheet } from "react-native";
 import { resize, width } from "utils/resize";
@@ -139,4 +139,19 @@ export default StyleSheet.create({
 		fontWeight: '300',
 		fontSize: resize(60),
 	},
+	youtubeButton: {
+		width: resize(100),
+		height:resize(100),
+		marginTop: resize(SPACES.LG),
+		marginHorizontal: resize(SPACES.XL),
+		borderRadius: resize(SPACES.LG),
+		backgroundColor: RED_600,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	youtubeButtonIcon: {
+		width: resize(70),
+		height:resize(70),
+		tintColor: WHITE
+	}
 })
