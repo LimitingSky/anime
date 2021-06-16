@@ -1,6 +1,6 @@
 import { GREY_LIGHT_100, GREY_LIGHT_400, GREY_LIGHT_50, RED_400, RED_600, WHITE, YELLOW_300 } from "assets/colors";
 import { SPACES, WIDTH_DESIGN } from "assets/const";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { resize, width } from "utils/resize";
 
 const HEIGHT_CARD = width*1.3
@@ -57,6 +57,11 @@ export default StyleSheet.create({
 	headerTitleContainer: {
 		paddingHorizontal: resize(SPACES.XL),
 		flexDirection: 'row',
+		...Platform.select({
+			android: {
+				paddingTop: resize(SPACES.XXL)
+			}
+		})
 	},
 	titleText: {
 		fontWeight: 'bold',
