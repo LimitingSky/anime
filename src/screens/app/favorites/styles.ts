@@ -48,4 +48,35 @@ export default StyleSheet.create({
 		alignItems: 'flex-end',
 		justifyContent:'space-around',
 	},
+	noResultsContainer: {
+		flex:1,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	noResultsImageContainer: {
+		width: resize(500),
+		height: resize(500),
+		borderRadius: resize(SPACES.LG),
+		marginVertical: resize(SPACES.XL),
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.22,
+		shadowRadius: 2.22,
+		elevation: 3,
+	},
+	noResultsImage: {
+		width: resize(500),
+		height: resize(500),
+		resizeMode: "cover",
+		backgroundColor: WHITE,
+		borderRadius: resize(SPACES.LG),
+	},
+	noResultsText: {
+		paddingHorizontal: resize(SPACES.XXL*2),
+		textAlign: "center",
+		fontSize: resize(60)
+	}
 })

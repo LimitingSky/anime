@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,FlatList, TouchableOpacity} from 'react-native';
-
+import noResultsIcon from '@assets/images/icons/noResults.jpg';
 import {CustomText} from 'components/commons/text';
 import Container from 'components/commons/container';
 import { ItemList } from 'components/catalogue/itemList';
@@ -35,14 +35,22 @@ function FavoriteView() {
 			<FlatList
 				data={data}
 				renderItem={({item, index}: {item: any; index: number})=><ItemList
-				image={item.attributes.posterImage.small}
-				rate={Number(item.attributes.averageRating)}
-				title={item.attributes.canonicalTitle}
-				subtitle={item.attributes.synopsis}
-				onPress={() => seeDetail(item)}
-				onPressFavorite={() => handleAddToFavorites(item,index)}
-				isFavorite={true}
-			/>}
+					image={item.attributes.posterImage.small}
+					rate={Number(item.attributes.averageRating)}
+					title={item.attributes.canonicalTitle}
+					subtitle={item.attributes.synopsis}
+					onPress={() => seeDetail(item)}
+					onPressFavorite={() => handleAddToFavorites(item,index)}
+					isFavorite={true}
+				/>}
+				ListEmptyComponent={
+					<View style={styles.noResultsContainer}>
+						<View style={styles.noResultsImageContainer}>
+							<Image source={noResultsIcon} style={styles.noResultsImage} />
+						</View>
+						<CustomText style={styles.noResultsText}>{`No ${mode.actual} favorites found it, add a new one`}</CustomText>
+					</View>
+				}
 			/>
     </Container>
   );
