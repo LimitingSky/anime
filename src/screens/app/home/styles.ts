@@ -43,6 +43,9 @@ export default StyleSheet.create({
 		borderColor: GREY,
 		height: resize(430-SPACES.LG),
 	},
+	rightHeaderInformationText:{
+		fontSize: resize(40)
+	},
 	firstName:{
 		color:BLACK,
 		fontSize: resize(100),

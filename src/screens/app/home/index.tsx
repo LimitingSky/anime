@@ -20,6 +20,7 @@ import {
 import {useHomeView} from './useHomeView';
 import {CATALOGUE_VIEW, TIME_LINE_VIEW} from 'router/types';
 import Container from '@components/commons/container';
+import * as authorData from 'assets/data/author.json';
 
 export default function HomeView() {
   const {navigateTo} = useHomeView();
@@ -40,23 +41,20 @@ export default function HomeView() {
             />
           </View>
           <View style={styles.rightHeaderInformationContainer}>
-            <CustomText mode={TextMode.SUBTITLE}>Developer</CustomText>
-            <CustomText>7049 6200</CustomText>
+            <CustomText mode={TextMode.SUBTITLE} style={styles.rightHeaderInformationText} >
+              {authorData.jobs[0].title}
+            </CustomText>
+            <CustomText>{authorData.phone}</CustomText>
           </View>
         </View>
         <CustomText mode={TextMode.TITLE} style={styles.firstName}>
-          Luis Fernando
+          {authorData.names}
         </CustomText>
         <CustomText mode={TextMode.SUBTITLE} style={styles.secondName}>
-          Garcia Garcia
+          {authorData.surnames}
         </CustomText>
         <View style={styles.sectionContainer}>
           <CustomText style={styles.informationTitle}>Infomation</CustomText>
-          <HomeButton
-            title="Personal"
-            icon={personalIcon}
-            colors={[ORANGE_LIGHT_100, ORANGE]}
-          />
           <HomeButton
             title="Professional"
             onPress={navigateToTimeLine}
@@ -64,7 +62,7 @@ export default function HomeView() {
             colors={[BLUE_LIGHT, BLUE_DARK]}
           />
           <HomeButton
-						onPress={navigateToCatalogue}
+            onPress={navigateToCatalogue}
             title="Watch Anime or Manga"
             icon={ticketStar}
             colors={[PURPLE_LIGHT, PURPLE_DARK]}
