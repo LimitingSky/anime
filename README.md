@@ -1,6 +1,6 @@
 # Challenge React Native
 
-AniMe App is the challenge they gave me a week ago and it consists of customizing the public API of kitsu.io. [app release](https://github.com/LimitingSky/anime/tree/main/release)
+AniMe App implements a custom ui for the public API of kitsu.io. [app release](https://github.com/LimitingSky/anime/tree/main/release)
 
 ## Enviroment
 
