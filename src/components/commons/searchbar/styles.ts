@@ -19,5 +19,6 @@ export default StyleSheet.create({
 		fontSize: resize(30),
 		fontWeight: "400",
 		height: resize(60),
+		paddingVertical: 0
 	}
 })
