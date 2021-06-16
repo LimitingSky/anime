@@ -179,6 +179,7 @@ class CatalogueView extends React.Component {
       this.state;
     const {favorites} = this.props;
     const {offset, itemsPerPage} = paginateItems;
+		const favoritesItems:string[] = favorites[mode].map((favorite:ItemBase)=>favorite.id)
     try {
       const currentCategory = categories.find(
         ({id}) => id == Number(categorySelected),
@@ -199,9 +200,7 @@ class CatalogueView extends React.Component {
       }
       const results = response.data.data.map((result: ItemBase) => ({
         ...result,
-        isFavorite: favorites[mode].find(
-          (favorite: ItemBase) => favorite.id === result.id,
-        ),
+        isFavorite: favoritesItems.includes(result.id),
       }));
       const newResults = arrayUnique(items.concat(results));
       this.setState({
@@ -314,6 +313,7 @@ class CatalogueView extends React.Component {
       this.state;
     const {favorites} = this.props;
     const {offset, itemsPerPage} = paginateItems;
+		const favoritesItems:string[] = favorites[mode].map((favorite:ItemBase)=>favorite.id)
     try {
       const currentCategory = categories.find(
         ({id}) => id == Number(categorySelected),
@@ -333,9 +333,7 @@ class CatalogueView extends React.Component {
       }
       const results = response.data.data.map((result: ItemBase) => ({
         ...result,
-        isFavorite: !!favorites[mode].find(
-          (favorite: ItemBase) => favorite.id === result.id,
-        ),
+        isFavorite: favoritesItems.includes(result.id),
       }));
       const newResults = arrayUnique(items.concat(results));
       this.setState({

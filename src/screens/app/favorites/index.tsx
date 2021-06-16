@@ -41,7 +41,7 @@ function FavoriteView() {
 				subtitle={item.attributes.synopsis}
 				onPress={() => seeDetail(item)}
 				onPressFavorite={() => handleAddToFavorites(item,index)}
-				isFavorite={item.isFavorite}
+				isFavorite={true}
 			/>}
 			/>
     </Container>
