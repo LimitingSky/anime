@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
+import { useRoute } from "@react-navigation/native";
 import { HISTORY_TYPE } from "assets/const";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,12 +22,13 @@ interface IFavoriteView {
 export default function useFavorites(){
 	const dispatch = useDispatch()
 	const navigation = useNavigation()
+	const {params} = useRoute()
 	const favorites :IFavoriteView = useSelector(({favorites}: IStore) => ({
 		anime: JSON.parse(favorites.anime),
 		manga: JSON.parse(favorites.manga),
 	}));
 	const [data,setData] = useState<ItemBase[]>(favorites.anime);	
-	const [mode,setMode] = useState<HISTORY_TYPE>(HISTORY_TYPE.ANIME);
+	const [mode,setMode] = useState<HISTORY_TYPE>(params.mode||HISTORY_TYPE.ANIME);
 
 	const seeDetail = (favorite:ItemBase) => navigation.navigate(DETAIL_VIEW,favorite)
 
