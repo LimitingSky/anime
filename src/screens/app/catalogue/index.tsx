@@ -85,6 +85,21 @@ class CatalogueView extends React.Component {
   componentDidMount() {
     this.handleGetCategories();
   }
+	componentDidUpdate(prevProps){
+		const updateFavorites = JSON.stringify(prevProps.favorites);
+		const currentFavorites = JSON.stringify(this.props.favorites);
+		if(updateFavorites!=currentFavorites){
+			this.handleValidateFavorites()
+		}
+	}
+
+	handleValidateFavorites = () => {
+		const {items, mode,paginateItems} = this.state;
+    const {favorites} = this.props;
+		const favoritesItems:string[] = favorites[mode].map((favorite:ItemBase)=>favorite.id)
+		const newItems = items.map((item:ItemBase)=>({...item,isFavorite:favoritesItems.includes(item.id)}))
+		this.setState({items:newItems,paginateItems:{...paginateItems,extraData:!paginateItems.extraData}},()=>console.log('Change'))
+	}
 
   seeDetail = (item: ItemBase) => {
     let screen = DETAIL_VIEW;
