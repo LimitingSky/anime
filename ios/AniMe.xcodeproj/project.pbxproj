@@ -35,23 +35,23 @@
 		00E356EE1AD99517003FC87E /* AniMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AniMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AniMeTests.m; sourceTree = "<group>"; };
-		0B06C203AB7D41A08093F61D /* BalooTammudu2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Regular.ttf"; path = "../src/assets/fonts/BalooTammudu2-Regular.ttf"; sourceTree = "<group>"; };
+		0B06C203AB7D41A08093F61D /* BalooTammudu2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Regular.ttf"; path = "../src/assets/fonts/BalooTammudu2-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AniMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AniMe/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AniMe/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AniMe/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AniMe/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AniMe/main.m; sourceTree = "<group>"; };
-		2948670AB97A4A91A3B17BBD /* BalooTammudu2-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-ExtraBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-ExtraBold.ttf"; sourceTree = "<group>"; };
-		2C43B9AF0D874DF8AFE7DD82 /* BalooTammudu2-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Bold.ttf"; path = "../src/assets/fonts/BalooTammudu2-Bold.ttf"; sourceTree = "<group>"; };
+		2948670AB97A4A91A3B17BBD /* BalooTammudu2-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-ExtraBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2C43B9AF0D874DF8AFE7DD82 /* BalooTammudu2-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Bold.ttf"; path = "../src/assets/fonts/BalooTammudu2-Bold.ttf"; sourceTree = "<group>"; };
 		4FDBCA325E95A8E4B3CB7259 /* Pods-AniMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe.release.xcconfig"; path = "Target Support Files/Pods-AniMe/Pods-AniMe.release.xcconfig"; sourceTree = "<group>"; };
 		62097D177A0AB6D1E3DF74BE /* libPods-AniMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AniMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703690321BB661B7CD9934C5 /* libPods-AniMe-AniMeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AniMe-AniMeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AniMe/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8765E633D26FD2B2B5F0352C /* Pods-AniMe-AniMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe-AniMeTests.debug.xcconfig"; path = "Target Support Files/Pods-AniMe-AniMeTests/Pods-AniMe-AniMeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A11E79316C0D4DC3914C0D4E /* BalooTammudu2-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Medium.ttf"; path = "../src/assets/fonts/BalooTammudu2-Medium.ttf"; sourceTree = "<group>"; };
+		A11E79316C0D4DC3914C0D4E /* BalooTammudu2-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-Medium.ttf"; path = "../src/assets/fonts/BalooTammudu2-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-SemiBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-SemiBold.ttf"; sourceTree = "<group>"; };
+		ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BalooTammudu2-SemiBold.ttf"; path = "../src/assets/fonts/BalooTammudu2-SemiBold.ttf"; sourceTree = "<group>"; };
 		F23F5CBD7435FBB24866662E /* Pods-AniMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe.debug.xcconfig"; path = "Target Support Files/Pods-AniMe/Pods-AniMe.debug.xcconfig"; sourceTree = "<group>"; };
 		F58DBDB796EDB0BC04EAE814 /* Pods-AniMe-AniMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniMe-AniMeTests.release.xcconfig"; path = "Target Support Files/Pods-AniMe-AniMeTests/Pods-AniMe-AniMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,6 @@
 				8765E633D26FD2B2B5F0352C /* Pods-AniMe-AniMeTests.debug.xcconfig */,
 				F58DBDB796EDB0BC04EAE814 /* Pods-AniMe-AniMeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -170,7 +169,6 @@
 				ED60C2AB29DA45EE8835D6D6 /* BalooTammudu2-SemiBold.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PUUTSZTKR6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AniMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -525,7 +524,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.descode.AniMe;
 				PRODUCT_NAME = AniMe;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -540,6 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PUUTSZTKR6;
 				INFOPLIST_FILE = AniMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -550,7 +550,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.descode.AniMe;
 				PRODUCT_NAME = AniMe;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
