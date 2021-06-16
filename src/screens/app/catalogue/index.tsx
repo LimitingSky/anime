@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, FlatList, ActivityIndicator} from 'react-native';
+import {View, FlatList, ActivityIndicator, Image} from 'react-native';
 import {CustomText} from 'components/commons/text';
 import {CatalogueCard} from 'components/catalogue/card';
 import Container from 'components/commons/container';
+import noResultsIcon from '@assets/images/icons/noResults.jpg';
 import {BLUE_50, BLUE_900} from 'assets/colors';
 import {ModeButton} from 'components/catalogue/button';
 import {ItemList} from 'components/catalogue/itemList';
@@ -102,11 +103,12 @@ class CatalogueView extends React.Component {
 	}
 
   seeDetail = (item: ItemBase) => {
+		const {mode} = this.state
     let screen = DETAIL_VIEW;
-    let params: ItemBase | null = item;
+    let params: ItemBase | {} = item;
     if (Object.entries(item.attributes || {}).length == 0) {
       screen = FAVORITE_VIEW;
-      params = null;
+      params = {mode};
     }
     this.props.navigation.navigate(screen, params);
   };
@@ -394,6 +396,7 @@ class CatalogueView extends React.Component {
     return (
       <Container>
         <FlatList
+					keyboardShouldPersistTaps='always'
           stickyHeaderIndices={[Boolean(query)?0:1]}
           data={[...(Boolean(query)?[]:[{}]), ...items]}
           onEndReached={this.handleLoadMoreItem}
@@ -485,7 +488,15 @@ class CatalogueView extends React.Component {
             </>
           }
           ListFooterComponent={
-            <>{paginateItems.loadingMore && <ActivityIndicator />}</>
+          <>
+						{!paginateItems.loadingMore && !paginateItems.loading&&items.length==0&&<View style={styles.noResultsContainer}>
+							<View style={styles.noResultsImageContainer}>
+								<Image source={noResultsIcon} style={styles.noResultsImage} />
+							</View>
+							<CustomText>{`No search results`}</CustomText>
+						</View>}
+						{paginateItems.loadingMore || paginateItems.loading && <ActivityIndicator color={BLUE_900} />}
+					</>
           }
         />
       </Container>
